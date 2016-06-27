@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4257433d-ba65-49d9-af84-d74d2030c6ae" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/filetojdbc/LineReader.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/filetojdbc/LineReader.java" />
-    </list>
+    <list default="true" id="4257433d-ba65-49d9-af84-d74d2030c6ae" name="Default" comment="" />
     <ignored path="filetodb.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />

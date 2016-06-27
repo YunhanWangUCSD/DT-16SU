@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><root><package name="com.example.myapexapp"><class name="WordReader" qualified="com.example.myapexapp.WordReader"><method name="getNonWordStr"/><method name="setNonWordStr"/><method name="setup"/><field name="output"><type qualified="com.datatorrent.api.DefaultOutputPort"/></field><field name="input"><type qualified="com.datatorrent.api.DefaultInputPort"/></field></class><class name="WordCountWriter" qualified="com.example.myapexapp.WordCountWriter"><method name="endWindow"/><method name="getFileName"/><method name="getBytesForTuple"/></class><class name="WindowWordCount" qualified="com.example.myapexapp.WindowWordCount"><method name="endWindow"/><field name="wordMap"><type qualified="java.util.Map"/></field><field name="input"><type qualified="com.datatorrent.api.DefaultInputPort"/></field><field name="output"><type qualified="com.datatorrent.api.DefaultOutputPort"/></field></class><class name="WCPair" qualified="com.example.myapexapp.WCPair"><method name="toString"/><field name="word"><type qualified="java.lang.String"/></field><field name="freq"><type qualified="int"/></field></class><class name="LineReader" qualified="com.example.myapexapp.LineReader"><method name="openFile"/><method name="closeFile"/><method name="readEntity"/><method name="emit"/><field name="output"><type qualified="com.datatorrent.api.DefaultOutputPort"/></field><field name="control"><type qualified="com.datatorrent.api.DefaultOutputPort"/></field></class><class name="FileWordCount" qualified="com.example.myapexapp.FileWordCount"><comment>Computes word frequencies per file and globally, and writes the top N pairs to an output file
+ and to snapshot servers for visualization.
+ Currently designed to work with only 1 file at a time; will be enhanced later to support
+ multiple files dropped into the monitored directory at the same time.
+
+ &lt;p&gt;
+ Receives per-window list of pairs (word, frequency) on the input port. When the end of a file
+ is reached, expects to get an EOF on the control port; at the next endWindow, the top N words
+ and frequencies are computed and emitted to the output ports.
+ &lt;p&gt;
+ There are 3 output ports: (a) One for the per-file top N counts emitted when the file is fully
+ read and is written to the output file. (b) One for the top N counts emitted per window for the
+ current file to the snapshot server and (c) One for the global top N counts emitted per window
+ to a different snapshot server.
+
+ Since the EOF is received by a single operator, this operator cannot be partitionable</comment><tag name="@since" text="3.2.0"/><method name="getTopN"><comment>Get the number of top (word, frequency) pairs that will be output</comment></method><method name="setTopN"><comment>Set the number of top (word, frequency) pairs that will be output</comment><tag name="@param" text="n The new number"/></method><method name="setup"><comment>{@inheritDoc}
+ Initialize various map and list fields</comment></method><method name="endWindow"><comment>{@inheritDoc}
+ This is where we do most of the work:
+ 1. Sort global map and emit top N pairs
+ 2. Sort current file map and emit top N pairs
+ 3. If we've seen EOF, emit top N pairs on port connected to file writer and clear all per-file
+    data structures.</comment></method><field name="topN"><type qualified="int"/><comment>If {@literal topN &gt; 0}, only data for the topN most frequent words is output; if topN == 0, the
+ entire frequency map is output</comment></field><field name="eof"><type qualified="boolean"/><comment>Set to true when an EOF control tuple for the current input file is received; reset to false
+ when the corresponding output file has been written.</comment></field><field name="fileName"><type qualified="java.lang.String"/><comment>Last component of path (just the file name)
+ incoming value from control tuple</comment></field><field name="wordMapFile"><type qualified="java.util.Map"/><comment>{@literal (word =&gt; frequency)} map: current file, all words</comment></field><field name="wordMapGlobal"><type qualified="java.util.Map"/><comment>{@literal (word =&gt; frequency)} map: global, all words</comment></field><field name="resultPerFile"><type qualified="java.util.List"/><comment>Singleton list with per file data; sent on {@code outputPerFile}</comment></field><field name="resultGlobal"><type qualified="java.util.List"/><comment>Singleton list with global data; sent on {@code outputGlobal}</comment></field><field name="resultFileFinal"><type qualified="java.util.Map"/><comment>Singleton map of {@code fileName} to sorted list of (word, frequency) pairs</comment></field><field name="fileFinalList"><type qualified="java.util.List"/><comment>final list of (word, frequency) pairs written to output file</comment></field><field name="input"><type qualified="com.datatorrent.api.DefaultInputPort"/><comment>Input port on which per-window {@literal (word =&gt; frequency)} map is received; the map
+ is merged into {@code wordMapFile} and {@code wordMapGlobal}.</comment></field><field name="control"><type qualified="com.datatorrent.api.DefaultInputPort"/><comment>Control port on which the current file name is received to indicate EOF</comment></field><field name="outputPerFile"><type qualified="com.datatorrent.api.DefaultOutputPort"/><comment>Output port for current file output</comment></field><field name="outputGlobal"><type qualified="com.datatorrent.api.DefaultOutputPort"/><comment>Output port for global output</comment></field><field name="fileOutput"><type qualified="com.datatorrent.api.DefaultOutputPort"/><comment>Tuple is singleton map {@code fileName =&gt; TopNMap} where {@code TopNMap} is the final
+ top N pairs for current file and will be written to the output file; emitted in the
+ {@code endWindow()} call after an EOF</comment></field></class><class name="ApplicationWithQuerySupport" qualified="com.example.myapexapp.ApplicationWithQuerySupport"><comment>Simple demo that computes word frequencies from any file dropped into a
+ monitored directory. It outputs the top N word-frequency pairs for each file
+ as well globally across all files.
+ &lt;p&gt;
+ Each input file generates a corresponding output file in the output directory
+ containing the top N pairs for that file. The output is also written
+ to an internal store to support visualization in the UI via queries.
+ &lt;p&gt;</comment><tag name="@since" text="3.2.0"/><method name="populateDAG"><comment>Populates the DAG with operators and connecting streams</comment><tag name="@param" text="dag The directed acyclic graph of operators to populate"/><tag name="@param" text="conf The configuration"/></method><field name="SNAPSHOT_SCHEMA"><type qualified="java.lang.String"/><comment>Name of schema file.</comment></field></class></package></root>
