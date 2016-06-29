@@ -31,16 +31,16 @@ Think More. Do More. Learn More.
   		   apt-cache show mysql
 		   apt-cache show mysql*
 		   apt-cache show mysql* | grep Package
-  310  sudo apt-get install mysql
-  311  sudo apt-get install mysql-server
-  316  sudo apt-get install mysql-server
-  317  sudo apt-get update
-  318  cd /etc/apt
-  325  sudo apt-get update
-  326  sudo apt-get install mysql-server
-  327  sudo apt-get install mysql-client
-  406  history |grep aptpkg
-  407  history |grep apt
+  		   sudo apt-get install mysql
+  	           sudo apt-get install mysql-server
+  		   sudo apt-get install mysql-server
+		   sudo apt-get update
+		   cd /etc/apt
+		   sudo apt-get update
+		   sudo apt-get install mysql-server
+		   sudo apt-get install mysql-client
+		   history |grep aptpkg
+		   history |grep apt
 
 		
 ####06/22 Wed
