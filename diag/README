@@ -1,0 +1,29 @@
+A couple of Python-based diagnostic tools to analyze Hadoop logs and configuration 
+
+chkconfig.py -- perfrom sanity checks on the Hadoop configuration
+chklogs.py   -- get information about a specific application id along with
+                (optionally) retrieving the AppMaster log file (dt.log only currently).
+
+The list of known configuration keys is in the file 'keys.txt'; all other
+configuration and log data is obtained by interrogating the system.
+
+Some usage eamples:
+
+python chkconfig.py -h
+python chklogs.py -h
+    Print help message
+
+python chklogs.py -a application_1466160025388_1899 -f ~/tmp/chklogs.log -m ~/tmp -d > output.txt
+    Prints all exception stack traces found in the YARN log and some information about
+    the specific application. Debug info is in the log file: ~/tmp/chklogs.log
+    If the -m option is present, the AppMaster log (dt.log) is stored in that directory.
+    Takes a few seconds.
+
+python chkconfig.py -f ~/tmp/chkconfig.log -d
+    Retrieves values of 700 or so Hadoop configuration keys by running a hdfs command
+    for each and does some sanity checks. Takes around 15m.
+    The debug option (-d) causes these values to be logged, so you can watch the
+    progress with:
+        tail -f ~/tmp/chkconfig.log
+    The list of all known Hadoop configuration keys is in keys.txt.
+    Currently check.py has some simple checks; more can be added there.
