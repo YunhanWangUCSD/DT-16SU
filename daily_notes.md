@@ -4,6 +4,10 @@ Think More. Do More. Learn More.
 ####06/29 Wed
 
 - mysql commands: <https://www.digitalocean.com/community/tutorials/a-basic-mysql-tutorial>
+			
+		mysql> truncate tablename; to empty a table!
+		
+
 - vim commands: <http://vim.wikia.com/wiki/Search_and_replace>
 
 ####06/27 Mon
