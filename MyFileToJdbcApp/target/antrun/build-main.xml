@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <move file="/Users/YunhanWang/apex/MyFileToJdbcApp/target/MyFileToJdbcApp-1.0-SNAPSHOT-apexapp.jar" tofile="/Users/YunhanWang/apex/MyFileToJdbcApp/target/MyFileToJdbcApp-1.0-SNAPSHOT.apa"/>
+</target>
+</project>
