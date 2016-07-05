@@ -1,28 +1,28 @@
 <?xml version="1.0"?>
 <configuration>
-<!--
-<property>
-  <name>dt.application.{appName}.operator.{opName}.prop.{propName}</name>
-  <value>some-default-value (if value is not specified, it is required from the user or custom config when launching)</value>
-</property>
--->
-<!-- memory assigned to app master
-<property>
-  <name>dt.attr.MASTER_MEMORY_MB</name>
-  <value>1024</value>
-</property>
--->
-<property>
-  <name>dt.application.MyFileToJdbcApp.operator.fileReader.prop.directory</name>
-  <value>/tmp/yunhan/fileToJdbc/input-dir</value>
-</property>
-<!--<property>-->
+  <!-- 
+  <property>
+    <name>dt.application.{appName}.operator.{opName}.prop.{propName}</name>
+    <value>some-default-value (if value is not specified, it is required from the user or custom config when launching)</value>
+  </property>
+  -->
+  <!-- memory assigned to app master
+  <property>
+    <name>dt.attr.MASTER_MEMORY_MB</name>
+    <value>1024</value>
+  </property>
+  -->
+  <property>
+    <name>dt.application.MyFileToJdbcApp1.operator.reader.prop.directory</name>
+    <value>/user/yunhan</value>
+  </property>
+  <!--<property>-->
   <!--<name>dt.application.MyFileToJdbcApp.operator.fileReader.prop.partitionCount</name>-->
   <!--<value>5</value>-->
-<!--</property>-->
-<property>
-  <name>dt.loggers.level</name>
-  <value>com.datatorrent.*:INFO,org.apache.*:INFO</value>
-</property>
-
+  <!--</property>-->
+  <property>
+    <name>dt.loggers.level</name>
+    <value>com.datatorrent.*:INFO,org.apache.*:INFO</value>
+  </property>
 </configuration>
+

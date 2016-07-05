@@ -1,5 +1,10 @@
-com/example/MyFileToJdbcApp/LineParser$1.class
-com/example/MyFileToJdbcApp/LineParser.class
-com/example/MyFileToJdbcApp/FileToJdbcApp.class
-com/example/MyFileToJdbcApp/FileReader.class
-com/example/MyFileToJdbcApp/PojoEvent.class
+com/example/MyFileToJdbcApp1/CellProcessorBuilder$IntMinMax.class
+com/example/MyFileToJdbcApp1/DelimitedSchema$Field.class
+com/example/MyFileToJdbcApp1/FileReader.class
+com/example/MyFileToJdbcApp1/DelimitedSchema$FieldType.class
+com/example/MyFileToJdbcApp1/DelimitedSchema.class
+com/example/MyFileToJdbcApp1/FileToJdbcApp.class
+com/example/MyFileToJdbcApp1/CellProcessorBuilder.class
+com/example/MyFileToJdbcApp1/PojoEvent.class
+com/example/MyFileToJdbcApp1/CellProcessorBuilder$1.class
+com/example/MyFileToJdbcApp1/CsvParser.class

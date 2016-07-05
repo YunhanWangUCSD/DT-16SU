@@ -1,0 +1,18 @@
+{
+  "separator": ",",
+  "quoteChar":"\"",
+  "fields": [
+    {
+      "name": "AccountNumber",
+      "type": "INTEGER"
+    },
+    {
+      "name": "Name",
+      "type": "String"
+    },
+    {
+      "name": "Amount",
+      "type": "INTEGER"
+    }
+  ]
+}

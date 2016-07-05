@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><root><package name="com.example.MyFileToJdbcApp1"><class name="PojoEvent" qualified="com.example.MyFileToJdbcApp1.PojoEvent"><method name="toString"/><method name="getAccountNumber"/><method name="setAccountNumber"/><method name="getName"/><method name="setName"/><method name="getAmount"/><method name="setAmount"/></class><class name="FileToJdbcApp" qualified="com.example.MyFileToJdbcApp1.FileToJdbcApp"><comment>Created by YunhanWang on 6/27/16.</comment><method name="populateDAG"/></class><class name="FileReader" qualified="com.example.MyFileToJdbcApp1.FileReader"><comment>read lines from input file and emit them on output port; if end-of-file is reached, a control tuple
+ is emitted on the control port</comment><method name="setup"/><method name="endWindow"/><method name="emitTuples"/><method name="openFile"/><method name="closeFile"/><method name="readEntity"/><method name="emit"/><field name="START_FILE"><type qualified="char"/><comment>prefix for file start and finish control tuples</comment></field><field name="FINISH_FILE"><type qualified="char"/><comment>prefix for file start and finish control tuples</comment></field><field name="output"><type qualified="com.datatorrent.api.DefaultOutputPort"/><comment>output port for file data</comment></field><field name="control"><type qualified="com.datatorrent.api.DefaultOutputPort"/><comment>output port for control data</comment></field></class><class name="DelimitedSchema" qualified="com.example.MyFileToJdbcApp1.DelimitedSchema"><comment>&lt;p&gt;
+ This is schema that defines fields and their constraints for delimited files
+ The operators use this information to validate the incoming tuples.
+ Information from JSON schema is saved in this object and is used by the
+ operators
+ &lt;p&gt;
+ &lt;br&gt;
+ &lt;br&gt;
+ Example schema &lt;br&gt;
+ &lt;br&gt;
+ {@code{ "separator": ",", "quoteChar":"\"", "fields": [ "name": "adId",
+ "type": "Integer", "constraints": "required": "true" } , { "name": "adName",
+ "type": "String", "constraints": { "required": "true", "pattern":
+ "[a-z].*[a-z]$", "maxLength": "20" } }, { "name": "bidPrice", "type":
+ "Double", "constraints": { "required": "true", "minValue": "0.1", "maxValue":
+ "3.2" } }, { "name": "startDate", "type": "Date", "constraints": { "format":
+ "dd/MM/yyyy" } }, { "name": "securityCode", "type": "Long", "constraints": {
+ "minValue": "10", "maxValue": "30" } }, { "name": "active", "type":
+ "Boolean", "constraints": { "required": "true" } } ] }}</comment><tag name="@since" text="3.4.0"/><method name="getFieldNames"><comment>Get the list of field names mentioned in schema</comment><tag name="@return" text="fieldNames"/></method><method name="getDelimiterChar"><comment>Get the delimiter character</comment><tag name="@return" text="delimiterChar"/></method><method name="getQuoteChar"><comment>Get the quoteChar</comment><tag name="@return" text="quoteChar"/></method><method name="getLineDelimiter"><comment>Get the line delimiter</comment><tag name="@return" text="lineDelimiter"/></method><method name="toString"/><method name="getFields"><comment>Get the list of Fields.</comment><tag name="@return" text="fields"/></method><field name="REQUIRED"><type qualified="java.lang.String"/><comment>JSON key string for required constraint</comment></field><field name="EQUALS"><type qualified="java.lang.String"/><comment>JSON key string for equals constraint</comment></field><field name="LENGTH"><type qualified="java.lang.String"/><comment>JSON key string for length constraint</comment></field><field name="MIN_LENGTH"><type qualified="java.lang.String"/><comment>JSON key string for min length constraint</comment></field><field name="MAX_LENGTH"><type qualified="java.lang.String"/><comment>JSON key string for max length constraint</comment></field><field name="MIN_VALUE"><type qualified="java.lang.String"/><comment>JSON key string for min value constraint</comment></field><field name="MAX_VALUE"><type qualified="java.lang.String"/><comment>JSON key string for max value constraint</comment></field><field name="REGEX_PATTERN"><type qualified="java.lang.String"/><comment>JSON key string for regex pattern constraint</comment></field><field name="DATE_FORMAT"><type qualified="java.lang.String"/><comment>JSON key string for date format constraint</comment></field><field name="LOCALE"><type qualified="java.lang.String"/><comment>JSON key string for locale constraint</comment></field><field name="TRUE_VALUE"><type qualified="java.lang.String"/><comment>JSON key string for true value constraint</comment></field><field name="FALSE_VALUE"><type qualified="java.lang.String"/><comment>JSON key string for false value constraint</comment></field></class><class name="DelimitedSchema.Field" qualified="com.example.MyFileToJdbcApp1.DelimitedSchema.Field"><comment>Objects of this class represents a particular field in the schema. Each
+ field has a name, type and a set of associated constraints.</comment><method name="getName"><comment>Get the name of the field</comment><tag name="@return" text="name"/></method><method name="setName"><comment>Set the name of the field</comment><tag name="@param" text="name"/></method><method name="getType"><comment>Get {@link FieldType}</comment><tag name="@return" text="type"/></method><method name="setType"><comment>Set {@link FieldType}</comment><tag name="@param" text="type"/></method><method name="getConstraints"><comment>Get the map of constraints associated with the field</comment><tag name="@return" text="constraints"/></method><method name="setConstraints"><comment>Sets the map of constraints associated with the field</comment><tag name="@param" text="constraints"/></method><method name="toString"/></class><class name="CsvParser" qualified="com.example.MyFileToJdbcApp1.CsvParser"><comment>Operator that parses a delimited tuple against a specified schema &lt;br&gt;
+ Schema is specified in a json format as per {@link DelimitedSchema} that
+ contains field information and constraints for each field.&lt;br&gt;
+ Assumption is that each field in the delimited data should map to a simple
+ java type.&lt;br&gt;
+ &lt;br&gt;
+ &lt;b&gt;Properties&lt;/b&gt; &lt;br&gt;
+ &lt;b&gt;schema&lt;/b&gt;:schema as a string&lt;br&gt;
+ &lt;b&gt;clazz&lt;/b&gt;:Pojo class &lt;br&gt;
+ &lt;b&gt;Ports&lt;/b&gt; &lt;br&gt;
+ &lt;b&gt;in&lt;/b&gt;:input tuple as a byte array. Each tuple represents a record&lt;br&gt;
+ &lt;b&gt;parsedOutput&lt;/b&gt;:tuples that are validated against the schema are emitted
+ as Map&lt;String,Object&gt; on this port&lt;br&gt;
+ &lt;b&gt;out&lt;/b&gt;:tuples that are validated against the schema are emitted as pojo
+ on this port&lt;br&gt;
+ &lt;b&gt;err&lt;/b&gt;:tuples that do not confine to schema are emitted on this port as
+ KeyValPair&lt;String,String&gt;&lt;br&gt;
+ Key being the tuple and Val being the reason.</comment><tag name="@displayName" text="CsvParser"/><tag name="@category" text="Parsers"/><tag name="@tags" text="csv pojo parser"/><tag name="@since" text="3.2.0"/><method name="beginWindow"/><method name="setup"/><method name="convert"/><method name="processTuple"/><method name="processErrorTuple"/><method name="teardown"/><method name="getSchema"><comment>Get the schema</comment><tag name="@return" text=""/></method><method name="setSchema"><comment>Set the schema</comment><tag name="@param" text="schema"/></method><method name="getErrorTupleCount"><comment>Get errorTupleCount</comment><tag name="@return" text="errorTupleCount"/></method><method name="getEmittedObjectCount"><comment>Get emittedObjectCount</comment><tag name="@return" text="emittedObjectCount"/></method><method name="getIncomingTuplesCount"><comment>Get incomingTuplesCount</comment><tag name="@return" text="incomingTuplesCount"/></method><field name="parsedOutput"><type qualified="com.datatorrent.api.DefaultOutputPort"/><comment>output port to emit validate records as map</comment></field></class><class name="CellProcessorBuilder" qualified="com.example.MyFileToJdbcApp1.CellProcessorBuilder"><comment>Helper class with methods to generate CellProcessor objects. Cell processors
+ are an integral part of reading and writing with Super CSV - they automate
+ the data type conversions, and enforce constraints. They implement the chain
+ of responsibility design pattern - each processor has a single, well-defined
+ purpose and can be chained together with other processors to fully automate
+ all of the required conversions and constraint validation for a single
+ delimited record.</comment><tag name="@since" text="3.4.0"/><method name="getCellProcessor"><comment>Method to get cell processors for given field type and constraints</comment><tag name="@param" text="fieldType&#10;          data type of the field"/><tag name="@param" text="constraints&#10;          a map of constraints"/><tag name="@return" text=""/></method></class></package></root>
