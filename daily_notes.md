@@ -12,6 +12,9 @@ Think More. Do More. Learn More.
 
 		Type dG to delete all the lines.
 		Type gg to move the cursor to the first line of the file, if it is not already there.
+		Type :noh to turn off highlighting until the next search.
+		Type set nohlsearch to turn off highlighting completely.
+
 ####06/27 Mon
 
 - ssh to lab:
