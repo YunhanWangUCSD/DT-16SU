@@ -14,6 +14,10 @@ Think More. Do More. Learn More.
 		Type gg to move the cursor to the first line of the file, if it is not already there.
 		Type :noh to turn off highlighting until the next search.
 		Type set nohlsearch to turn off highlighting completely.
+		Type gg"*yG to yank the text.
+		Type :%y+ to yank all lines.
+
+
 
 ####06/27 Mon
 
