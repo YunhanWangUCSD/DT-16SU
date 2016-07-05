@@ -10,6 +10,8 @@ Think More. Do More. Learn More.
 
 - vim commands: <http://vim.wikia.com/wiki/Search_and_replace>
 
+		Type dG to delete all the lines.
+		Type gg to move the cursor to the first line of the file, if it is not already there.
 ####06/27 Mon
 
 - ssh to lab:
