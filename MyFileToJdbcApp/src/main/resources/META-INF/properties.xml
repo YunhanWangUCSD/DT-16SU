@@ -13,7 +13,7 @@
   </property>
   -->
   <property>
-    <name>dt.application.MyFileToJdbcApp1.operator.reader.prop.directory</name>
+    <name>dt.application.MyFileToJdbcApp.operator.reader.prop.directory</name>
     <value>/user/yunhan</value>
   </property>
   <!--<property>-->

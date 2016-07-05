@@ -22,11 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="MyFileToJdbcApp1" />
+        <module name="MyFileToJdbcApp" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="MyFileToJdbcApp1" target="1.7" />
+      <module name="MyFileToJdbcApp" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

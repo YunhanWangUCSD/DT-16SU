@@ -4,11 +4,11 @@
 
   <groupId>com.example</groupId>
   <version>1.0-SNAPSHOT</version>
-  <artifactId>MyFileToJdbcApp-yunhan</artifactId>
+  <artifactId>MyFileToJdbcApp</artifactId>
   <packaging>jar</packaging>
 
   <!-- change these to the appropriate values -->
-  <name>File to JDBC (yunhan)</name>
+  <name>File to JDBC</name>
   <description>My Apex Application Description</description>
 
   <properties>
