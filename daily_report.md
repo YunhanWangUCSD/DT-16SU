@@ -1,6 +1,26 @@
 ##Daily Report    
 Think More. Do More. Learn More.
 
+#### Week 07/05-07/08
+Goals:
+
+1. write README.md for my application
+2. write local test for my application
+3. pull my application code to `tutorial/example` github repo
+4. 
+
+Finished:
+
+1. write README.md for my application
+2. 
+
+#### Week 06/27-07/01
+Finished:
+
+1. finish building my own file to jdbc application, run successfully on console
+2. answer customer's question on JdbcPojoOutputOperator on mail list
+
+
 #### Week 06/20-06/24
 Weekly Goals:
 
@@ -83,12 +103,3 @@ TODO:
 4. Clone the Apex source code on a cluster with Hadoop already installed, build it and use the apexcli command line tool 
 5. visulization tool check
 
-
-Application -- file to database
-
-
-####06/27 Mon
-TODO:
-
-1.need account setup with teddy:  https://datatorrent.atlassian.net/login
-2.lab access with Sasha 
