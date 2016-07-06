@@ -21,14 +21,12 @@ public class FileToJdbcApp implements StreamingApplication{
     public void populateDAG(DAG dag, Configuration configuration) {
 
 
-
         // create operators
         String pojoSchema = SchemaUtils.jarResourceFileToString("schema.json");
 
         FileReader reader = dag.addOperator("FileReader", FileReader.class);
         CsvParser parser = dag.addOperator("FileParser", CsvParser.class);
         JdbcPOJOOutputOperator jdbcOutputOperator = dag.addOperator("JdbcOutput", JdbcPOJOOutputOperator.class);
-
 
 
         // configure operators
@@ -42,7 +40,6 @@ public class FileToJdbcApp implements StreamingApplication{
         JdbcTransactionalStore outputStore = new JdbcTransactionalStore();
         jdbcOutputOperator.setStore(outputStore);
         dag.setInputPortAttribute(jdbcOutputOperator.input, Context.PortContext.TUPLE_CLASS, PojoEvent.class);
-
 
 
         // add stream

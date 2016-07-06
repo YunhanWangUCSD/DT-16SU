@@ -130,5 +130,6 @@
     <orderEntry type="library" name="Maven: org.codehaus.janino:janino:2.7.8" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.janino:commons-compiler:2.7.8" level="project" />
     <orderEntry type="library" name="Maven: net.sf.supercsv:super-csv:2.4.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.datatorrent:malhar-library:3.5.0-SNAPSHOT" level="project" />
   </component>
 </module>
