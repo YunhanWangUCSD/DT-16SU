@@ -7,7 +7,8 @@ Goals:
 1. write README.md for my application
 2. write local test for my application
 3. pull my application code to `tutorial/example` github repo
-4. 
+4. code review and wirte beginner's guide part
+5. start learning python code to find down workers
 
 Finished:
 
