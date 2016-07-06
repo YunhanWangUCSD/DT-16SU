@@ -1,4 +1,4 @@
-##Daily Report    
+##Progress Report    
 Think More. Do More. Learn More.
 
 #### Week 07/05-07/08
