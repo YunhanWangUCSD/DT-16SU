@@ -1,6 +1,19 @@
 ##Daily Notes    
 Think More. Do More. Learn More.
 
+####07/07 Thu
+
+- useful commands to update cloned github repo:
+
+		git status
+		git remote -vvv
+		git log
+		git branch
+		git stash
+		mvn clean install -DskipTests
+		git diff
+		
+
 ####06/29 Wed
 
 - mysql commands: <https://www.digitalocean.com/community/tutorials/a-basic-mysql-tutorial>
