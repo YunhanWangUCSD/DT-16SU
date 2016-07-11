@@ -1,6 +1,24 @@
 ##Progress Report    
 Think More. Do More. Learn More.
 
+#### Week 07/11-07/15
+Goals:
+
+1. modify code based on review commends from Ram
+2. solve mysql primary key question from Pradeep
+3. 
+
+Finished:
+
+1.
+2.
+
+TODO:
+
+1.
+2.
+
+
 #### Week 07/05-07/08
 Goals:
 
@@ -13,7 +31,13 @@ Goals:
 Finished:
 
 1. write README.md for my application
-2. 
+2. write local test for my application
+3. merge two application into one, can choose which to launch in console
+
+TODO:
+
+1. modify code based on review commends from Ram
+2. need to solve mysql primary key question from Pradeep
 
 #### Week 06/27-07/01
 Finished:
