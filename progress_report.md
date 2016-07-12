@@ -5,12 +5,12 @@ Think More. Do More. Learn More.
 Goals:
 
 1. modify code based on review commends from Ram
-2. solve mysql primary key question from Pradeep
+2. solve mysql primary key problem from Pradeep
 3. 
 
 Finished:
 
-1.
+1. find out protected class misuse problem in Jdbc POJO operators
 2.
 
 TODO:
