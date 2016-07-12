@@ -10,7 +10,7 @@ Goals:
 
 Finished:
 
-1. find out protected class misuse problem in Jdbc POJO operators
+1. Created APEXMALHAR-2140 JIRA: Move ActiveFieldInfo class to com.datatorrent.lib.util
 2.
 
 TODO:
