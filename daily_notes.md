@@ -6,11 +6,13 @@ Think More. Do More. Learn More.
 - useful commands to update cloned github repo:
 
 		git status
-		git remote -vvv
 		git log
+		git remote -v
+		git pull
+		mvn-pkg
+		mvn clean install -DskipTests
 		git branch
 		git stash
-		mvn clean install -DskipTests
 		git diff
 		
 
