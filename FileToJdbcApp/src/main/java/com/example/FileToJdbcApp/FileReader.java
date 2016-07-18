@@ -20,3 +20,4 @@ public class FileReader extends LineByLineFileInputOperator{
     byteOutput.emit(bytes);
   }
 }
+
