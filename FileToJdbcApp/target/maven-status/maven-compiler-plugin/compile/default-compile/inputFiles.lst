@@ -1,6 +1,5 @@
-/Users/YunhanWang/GitHub/DT-16SU/FileToJdbcApp/src/main/java/com/example/FileToJdbcApp/PojoEvent.java
-/Users/YunhanWang/GitHub/DT-16SU/FileToJdbcApp/src/main/java/com/example/FileToJdbcApp/FileToJdbcApp.java
-/Users/YunhanWang/GitHub/DT-16SU/FileToJdbcApp/src/main/java/com/example/FileToJdbcApp/CsvParser.java
-/Users/YunhanWang/GitHub/DT-16SU/FileToJdbcApp/src/main/java/com/example/FileToJdbcApp/CellProcessorBuilder.java
-/Users/YunhanWang/GitHub/DT-16SU/FileToJdbcApp/src/main/java/com/example/FileToJdbcApp/FileReader.java
-/Users/YunhanWang/GitHub/DT-16SU/FileToJdbcApp/src/main/java/com/example/FileToJdbcApp/DelimitedSchema.java
+/Users/YunhanWang/GitHub/FileToJdbcApp/src/main/java/com/example/FileToJdbcApp/FileToJdbcCsvParser.java
+/Users/YunhanWang/GitHub/FileToJdbcApp/src/main/java/com/example/FileToJdbcApp/FileReader.java
+/Users/YunhanWang/GitHub/FileToJdbcApp/src/main/java/com/example/FileToJdbcApp/PojoEvent.java
+/Users/YunhanWang/GitHub/FileToJdbcApp/src/main/java/com/example/FileToJdbcApp/CustomParser.java
+/Users/YunhanWang/GitHub/FileToJdbcApp/src/main/java/com/example/FileToJdbcApp/FileToJdbcCustomParser.java

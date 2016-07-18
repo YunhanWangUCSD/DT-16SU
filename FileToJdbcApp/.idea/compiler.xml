@@ -23,12 +23,10 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="FileToJdbcApp" />
-        <module name="MyFileToJdbcApp" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="FileToJdbcApp" target="1.7" />
-      <module name="MyFileToJdbcApp" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

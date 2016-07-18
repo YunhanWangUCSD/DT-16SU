@@ -13,16 +13,54 @@
   </property>
   -->
   <property>
-    <name>dt.application.FileToJdbcApp.operator.reader.prop.directory</name>
+    <name>dt.operator.JdbcOutput.prop.store.databaseDriver
+    </name>
+    <value>com.mysql.jdbc.Driver</value>
+  </property>
+
+  <property>
+    <name>dt.operator.JdbcOutput.prop.store.databaseUrl
+    </name>
+    <value>jdbc:mysql://node17.morado.com:5505/testDev</value>
+  </property>
+
+  <property>
+    <name>dt.operator.JdbcOutput.prop.store.userName
+    </name>
+    <value>root</value>
+  </property>
+
+  <property>
+    <name>dt.operator.JdbcOutput.prop.store.password
+    </name>
+    <value>password</value>
+  </property>
+
+  <property>
+    <name>dt.operator.JdbcOutput.prop.batchSize
+    </name>
+    <value>5</value>
+  </property>
+
+  <property>
+    <name>dt.operator.JdbcOutput.prop.tablename
+    </name>
+    <value>test_jdbc_table</value>
+  </property>
+
+  <property>
+    <name>dt.operator.JdbcOutput.port.input.attr.TUPLE_CLASS
+    </name>
+    <value>com.example.FileToJdbcApp.PojoEvent</value>
+  </property>
+
+  <property>
+    <name>dt.operator.FileReader.prop.directory</name>
     <value>/user/yunhan</value>
   </property>
-  <!--<property>-->
-  <!--<name>dt.application.FileToJdbcApp.operator.fileReader.prop.partitionCount</name>-->
-  <!--<value>5</value>-->
-  <!--</property>-->
+
   <property>
     <name>dt.loggers.level</name>
     <value>com.datatorrent.*:INFO,org.apache.*:INFO</value>
   </property>
 </configuration>
-
