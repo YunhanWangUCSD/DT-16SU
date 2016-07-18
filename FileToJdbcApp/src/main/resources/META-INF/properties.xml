@@ -21,7 +21,7 @@
   <property>
     <name>dt.operator.JdbcOutput.prop.store.databaseUrl
     </name>
-    <value>jdbc:mysql://node17.morado.com:5505/testDev</value>
+    <value>jdbc:mysql://hostName:portNumber/dbName</value>
   </property>
 
   <property>
@@ -45,7 +45,7 @@
   <property>
     <name>dt.operator.JdbcOutput.prop.tablename
     </name>
-    <value>test_jdbc_table</value>
+    <value>table_name</value>
   </property>
 
   <property>
@@ -56,7 +56,7 @@
 
   <property>
     <name>dt.operator.FileReader.prop.directory</name>
-    <value>/user/yunhan</value>
+    <value>input_directory</value>
   </property>
 
   <property>
