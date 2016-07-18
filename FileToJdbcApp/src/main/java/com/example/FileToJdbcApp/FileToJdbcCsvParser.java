@@ -20,39 +20,38 @@ import static java.sql.Types.VARCHAR;
 @ApplicationAnnotation(name = "FileToJdbcCsvParser")
 public class FileToJdbcCsvParser implements StreamingApplication{
 
-    @Override
-    public void populateDAG(DAG dag, Configuration configuration) {
+  @Override
+  public void populateDAG(DAG dag, Configuration configuration) {
 
-        // create operators
-        FileReader fileReader = dag.addOperator("FileReader", FileReader.class);
-        CsvParser csvParser = dag.addOperator("CsvParser", CsvParser.class);
-        JdbcPOJOInsertOutputOperator jdbcOutputOperator = dag.addOperator("JdbcOutput", JdbcPOJOInsertOutputOperator.class);
+    // create operators
+    FileReader fileReader = dag.addOperator("FileReader", FileReader.class);
+    CsvParser csvParser = dag.addOperator("CsvParser", CsvParser.class);
+    JdbcPOJOInsertOutputOperator jdbcOutputOperator = dag.addOperator("JdbcOutput", JdbcPOJOInsertOutputOperator.class);
 
-        // configure operators
-        String pojoSchema = SchemaUtils.jarResourceFileToString("schema.json");
-        csvParser.setSchema(pojoSchema);
+    // configure operators
+    String pojoSchema = SchemaUtils.jarResourceFileToString("schema.json");
+    csvParser.setSchema(pojoSchema);
 
-        jdbcOutputOperator.setFieldInfos(addFieldInfos());
-        JdbcTransactionalStore outputStore = new JdbcTransactionalStore();
-        jdbcOutputOperator.setStore(outputStore);
+    jdbcOutputOperator.setFieldInfos(addFieldInfos());
+    JdbcTransactionalStore outputStore = new JdbcTransactionalStore();
+    jdbcOutputOperator.setStore(outputStore);
 
-        // add stream
-        dag.addStream("Bytes", fileReader.byteOutput, csvParser.in);
-        dag.addStream("POJOs", csvParser.out, jdbcOutputOperator.input);
-    }
+    // add stream
+    dag.addStream("Bytes", fileReader.byteOutput, csvParser.in);
+    dag.addStream("POJOs", csvParser.out, jdbcOutputOperator.input);
+  }
 
 
     /**
      * This method can be modified to have field mappings based on used defined
      * class
      */
-    private List<JdbcFieldInfo> addFieldInfos()
-    {
-        List<JdbcFieldInfo> fieldInfos = Lists.newArrayList();
-        fieldInfos.add(new JdbcFieldInfo("ACCOUNT_NO", "accountNumber", JdbcFieldInfo.SupportType.INTEGER , INTEGER));
-        fieldInfos.add(new JdbcFieldInfo("NAME", "name", JdbcFieldInfo.SupportType.STRING, VARCHAR));
-        fieldInfos.add(new JdbcFieldInfo("AMOUNT", "amount", JdbcFieldInfo.SupportType.INTEGER, INTEGER));
-        return fieldInfos;
-    }
+  private List<JdbcFieldInfo> addFieldInfos() {
+    List<JdbcFieldInfo> fieldInfos = Lists.newArrayList();
+    fieldInfos.add(new JdbcFieldInfo("ACCOUNT_NO", "accountNumber", JdbcFieldInfo.SupportType.INTEGER , INTEGER));
+    fieldInfos.add(new JdbcFieldInfo("NAME", "name", JdbcFieldInfo.SupportType.STRING, VARCHAR));
+    fieldInfos.add(new JdbcFieldInfo("AMOUNT", "amount", JdbcFieldInfo.SupportType.INTEGER, INTEGER));
+    return fieldInfos;
+  }
 }
 
