@@ -55,3 +55,4 @@ public class FileToJdbcCsvParser implements StreamingApplication{
         return fieldInfos;
     }
 }
+
