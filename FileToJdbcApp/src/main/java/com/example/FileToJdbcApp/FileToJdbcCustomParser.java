@@ -18,36 +18,37 @@ import static java.sql.Types.VARCHAR;
 @ApplicationAnnotation(name = "FileToJdbcCustomParser")
 public class FileToJdbcCustomParser implements StreamingApplication{
 
-    @Override
-    public void populateDAG(DAG dag, Configuration configuration) {
+  @Override
+  public void populateDAG(DAG dag, Configuration configuration) {
 
-        FileReader fileReader = dag.addOperator("FileReader", FileReader.class);
-        CustomParser customParser = dag.addOperator("CustomParser", CustomParser.class);
-        JdbcPOJOInsertOutputOperator jdbcOutputOperator = dag.addOperator("JdbcOutput", JdbcPOJOInsertOutputOperator.class);
-
-
-        // configure operators
-        jdbcOutputOperator.setFieldInfos(addFieldInfos());
-        JdbcTransactionalStore outputStore = new JdbcTransactionalStore();
-        jdbcOutputOperator.setStore(outputStore);
+    FileReader fileReader = dag.addOperator("FileReader", FileReader.class);
+    CustomParser customParser = dag.addOperator("CustomParser", CustomParser.class);
+    JdbcPOJOInsertOutputOperator jdbcOutputOperator = dag.addOperator("JdbcOutput", JdbcPOJOInsertOutputOperator.class);
 
 
-        // add stream
-        dag.addStream("Data", fileReader.output, customParser.input);
-        dag.addStream("POJOs", customParser.output, jdbcOutputOperator.input);
+    // configure operators
+    jdbcOutputOperator.setFieldInfos(addFieldInfos());
+    JdbcTransactionalStore outputStore = new JdbcTransactionalStore();
+    jdbcOutputOperator.setStore(outputStore);
 
-    }
 
-    /**
-     * This method can be modified to have field mappings based on used defined
-     * class
-     */
-    private List<JdbcFieldInfo> addFieldInfos()
-    {
-        List<JdbcFieldInfo> fieldInfos = Lists.newArrayList();
-        fieldInfos.add(new JdbcFieldInfo("ACCOUNT_NO", "accountNumber", JdbcFieldInfo.SupportType.INTEGER , INTEGER));
-        fieldInfos.add(new JdbcFieldInfo("NAME", "name", JdbcFieldInfo.SupportType.STRING, VARCHAR));
-        fieldInfos.add(new JdbcFieldInfo("AMOUNT", "amount", JdbcFieldInfo.SupportType.INTEGER, INTEGER));
-        return fieldInfos;
-    }
+    // add stream
+    dag.addStream("Data", fileReader.output, customParser.input);
+    dag.addStream("POJOs", customParser.output, jdbcOutputOperator.input);
+
+  }
+
+  /**
+   * This method can be modified to have field mappings based on used defined
+   * class
+   */
+  private List<JdbcFieldInfo> addFieldInfos()
+  {
+    List<JdbcFieldInfo> fieldInfos = Lists.newArrayList();
+    fieldInfos.add(new JdbcFieldInfo("ACCOUNT_NO", "accountNumber", JdbcFieldInfo.SupportType.INTEGER , INTEGER));
+    fieldInfos.add(new JdbcFieldInfo("NAME", "name", JdbcFieldInfo.SupportType.STRING, VARCHAR));
+    fieldInfos.add(new JdbcFieldInfo("AMOUNT", "amount", JdbcFieldInfo.SupportType.INTEGER, INTEGER));
+    return fieldInfos;
+  }
 }
+
