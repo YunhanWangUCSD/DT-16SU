@@ -42,3 +42,4 @@ public class PojoEvent
     this.amount = amount;
   }
 }
+
