@@ -1,87 +1,54 @@
-## Sample File to JDBC application
+## Sample File to JDBC Example
 
-This application reads from file(s) from the user specified input directory in HDFS, parses into POJOs and then writes them to a table in `MySQL`.
+This example shows how to read files from HDFS, parse into POJOs and then insert into a table in MySQL.
 
-Follow these steps to run this application:
+Given various parsing demands, we give two applications under this package, `FileToJdbcCsvParser` and `FileToJdbcCustomParser`. 
 
-**Step 1**: 
+`CsvParser` allows you to parse only CSV format input files. For more complex input format, `CustomParser` allows you to set custom regex to parse. 
 
-- Update schema for CsvParser in the file `src/main/resources/schema.json`
-- Update PojoEvent class and addFieldInfos() method in `src/main/java/com/example/MyFileToJdbcApp`
+Accordingly, we have two additional configuration files(`src/site/conf/exampleCsvParser.xml` and `src/site/conf/exampleCustomParser.xml`) besides the common properties file(`/src/main/resources/META-INF/properties.xml`). 
+
+Users can choose which applicaiton and which addtional configuration file to use during launch time.
 
 
-**Step 2**: 
+####**Update Properties:**
 
-- Update these properties in the file `src/site/conf/example.xml`:
+- Update these common properties in the file `/src/main/resources/META-INF/properties.xml`:
 
 | Property Name  | Description |
 | -------------  | ----------- |
-| dt.application.MyFileToJdbcApp.operator.reader.prop.directory |HDFS input directory path 
-|dt.application.MyFileToJdbcApp.operator.JdbcOutput.prop.store.databaseUrl | database URL of the form `jdbc:mysql://hostName:portNumber/dbName` |
-| dt.application.MyFileToJdbcApp.operator.JdbcOutput.prop.store.userName | MySQL user name |
-| dt.application.MyFileToJdbcApp.operator.JdbcOutput.prop.store.password | MySQL user password |
-| dt.application.MyFileToJdbcApp.operator.JdbcOutput.prop.tablename   | MySQL output table name |
+| dt.operator.FileReader.prop.directory |HDFS input directory path 
+|dt.operator.JdbcOutput.prop.store.databaseUrl | database URL of the form `jdbc:mysql://hostName:portNumber/dbName` |
+| dt.operator.JdbcOutput.prop.store.userName | MySQL user name |
+| dt.operator.JdbcOutput.prop.store.password | MySQL user password |
+| dt.operator.JdbcOutput.prop.tablename   | MySQL output table name |
 
-**Step 3**: 
-
-- Create input file(s). For example: 
-
-		1, 'User1', 1000
-		2, 'User2', 2000
-		3, 'User3', 3000
-		4, 'User4', 4000
-		5, 'User5', 5000
-		6, 'User6', 6000
-		7, 'User7', 7000
-		8, 'User8', 8000
-		9, 'User9', 9000
-		10, 'User10',10000
-		
-- Create HDFS input directory if not already present (_{path/to/input/directory}_ should be the same as specified in `META_INC/properties.xml`):
-
-    	hdfs dfs -mkdir {path/to/input/directory}
-
-- Put input file(s) into HDFS input directory
-		
-		hdfs dfs -put {path/to/file} {path/to/input/directory}
-
-**Step 4**:
-
-- Create database table. Go to the MySQL console and run, for example:
-
-    	mysql> create table test_jdbc_table(ACCOUNT_NO INTEGER(11) NOT NULL,
-    		-> NAME VARCHAR(255),
-    		-> AMOUNT INTEGER(11));
-
-- After this, please verify that `testDev.test_jdbc_table` is created and has 3 rows:
-
-    	mysql> desc test_jdbc_table;
-		+------------+--------------+------+-----+---------+-------+
-		| Field      | Type         | Null | Key | Default | Extra |
-		+------------+--------------+------+-----+---------+-------+
-		| ACCOUNT_NO | int(11)      | NO   |     | NULL    |       |
-		| NAME       | varchar(255) | YES  |     | NULL    |       |
-		| AMOUNT     | int(11)      | YES  |     | NULL    |       |
-		+------------+--------------+------+-----+---------+-------+
-		3 rows in set (0.00 sec)
+- Using CustomParser: update `regexStr` in file `src/site/conf/exampleCustomParser.xml`
 
 
-**Step 4**: 
+####**Sample Input:**
 
-- Build the code:
+- To run this example, create files using this format: 
 
-    	shell> mvn clean install
+		1,'User1',1000
+		2,'User2',2000
+		3,'User3',3000
+		4,'User4',4000
+		5,'User5',5000
+		6,'User6',6000
+		7,'User7',7000
+		8,'User8',8000
+		9,'User9',9000
+		10,'User10',10000
 
-- Upload the `target/MyFileToJdbcApp-1.0-SNAPSHOT.apa` to the UI console if available or launch it from
-the commandline using `apexcli`.
+- To change input format, update `PojoEvent` class and `addFieldInfos()` method in `src/main/java/com/example/FileToJdbcApp`. If using CsvParser, also update `src/main/resources/schema.json`.
 
-**Step 5**: 
+####**Sample Output:**
 
-- During launch use `site/conf/example.xml` as a custom configuration file; 
 - After running successfully, verify
 that the database table has the expected output: 
 	
-		mysql> select * from test_jdbc_table;
+		mysql> select * from table_name;
 		+------------+--------+--------+
 		| ACCOUNT_NO | NAME   | AMOUNT |
 		+------------+--------+--------+
