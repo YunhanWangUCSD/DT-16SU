@@ -7,7 +7,7 @@ import org.apache.apex.malhar.lib.fs.LineByLineFileInputOperator;
 public class FileReader extends LineByLineFileInputOperator{
 
   /**
-   * output in bytes matching CsvParser input type
+   * output in bytes to match CsvParser input type
    */
   @OutputPortFieldAnnotation(optional = true)
   public final transient DefaultOutputPort<byte[]> byteOutput  = new DefaultOutputPort<>();
