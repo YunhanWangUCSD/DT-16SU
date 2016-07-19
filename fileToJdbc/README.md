@@ -28,6 +28,7 @@ Users can choose which applicaiton and which addtional configuration file to use
 
 ####**Sample Input:**
 
+- To set up MySQL database and create table, check `src/test/resources/example.sql` 
 - To run this example, create files using this format: 
 
 ```
