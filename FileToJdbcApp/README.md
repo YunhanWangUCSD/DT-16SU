@@ -30,16 +30,16 @@ Users can choose which applicaiton and which addtional configuration file to use
 
 - To run this example, create files using this format: 
 
-		1,'User1',1000
-		2,'User2',2000
-		3,'User3',3000
-		4,'User4',4000
-		5,'User5',5000
-		6,'User6',6000
-		7,'User7',7000
-		8,'User8',8000
-		9,'User9',9000
-		10,'User10',10000
+    1,'User1',1000
+	2,'User2',2000
+	3,'User3',3000
+	4,'User4',4000
+	5,'User5',5000
+	6,'User6',6000
+	7,'User7',7000
+	8,'User8',8000
+	9,'User9',9000
+	10,'User10',10000
 
 - To change input format, update `PojoEvent` class and `addFieldInfos()` method in `src/main/java/com/example/FileToJdbcApp`. If using CsvParser, also update `src/main/resources/schema.json`.
 
