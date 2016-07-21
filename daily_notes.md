@@ -1,6 +1,11 @@
 ##Daily Notes    
 Think More. Do More. Learn More.
 
+####07/21 Thu
+
+- simple git cheatsheet: <https://gist.github.com/hofmannsven/6814451>
+
+
 ####07/07 Thu
 
 - useful commands to update cloned github repo:
