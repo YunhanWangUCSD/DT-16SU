@@ -1,22 +1,37 @@
 ##Progress Report    
 Think More. Do More. Learn More.
 
+#### Week 07/18-07/22
+Goals:
+
+1. Resolve file to jdbc example task, PR merge
+2. Set goal and subtasks for log analyzer task, update JIRA, get started
+
+Finished:
+
+1. Opened File to Jdbc PR, fixed according to comments
+2. 
+
+TODO:
+
+1. Open PR for file to jdbc example 
+
+
 #### Week 07/11-07/15
 Goals:
 
 1. modify code based on review commends from Ram
 2. solve mysql primary key problem from Pradeep
-3. 
+3. write my own jdbc update and insert operator extends jdbc insert operator
 
 Finished:
 
 1. Created APEXMALHAR-2140 JIRA: Move ActiveFieldInfo class to com.datatorrent.lib.util
-2.
+2. Finished partial jdbc update and insert operator code and test code, sent to Dev
 
 TODO:
 
-1.
-2.
+1. Open PR for file to jdbc example 
 
 
 #### Week 07/05-07/08
