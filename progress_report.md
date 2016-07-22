@@ -5,7 +5,10 @@ Think More. Do More. Learn More.
 Goals:
 
 1. Resolve file to jdbc example task, PR merge
-2. Set goal and subtasks for log analyzer task, update JIRA, get started
+2. log analyzer subtasks:
+
+		(1) understand current scripts, get RM log and AM log using REST API
+		(2) parse the AM log: extract any exceptions, figure out where the containers were created and use the REST API to get logs from those nodes
 
 Finished:
 
