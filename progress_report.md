@@ -1,6 +1,25 @@
 ##Progress Report    
 Think More. Do More. Learn More.
 
+
+#### Week 07/18-07/22
+Goals:
+
+1. finish log analyzer subtask: 
+
+		(1) understand current scripts, get RM log and AM log using REST API
+		(2) parse the AM log: extract any exceptions, figure out where the containers were created and use the REST API to get logs from those nodes
+
+Finished:
+
+1. Fixed File to Jdbc PR comments, okay to merge now
+2. 
+
+TODO:
+
+1. Start log analyzer task
+
+
 #### Week 07/18-07/22
 Goals:
 
@@ -13,11 +32,10 @@ Goals:
 Finished:
 
 1. Opened File to Jdbc PR, fixed according to comments
-2. 
 
 TODO:
 
-1. Open PR for file to jdbc example 
+1. Start log analyzer task
 
 
 #### Week 07/11-07/15
