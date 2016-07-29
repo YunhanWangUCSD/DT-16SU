@@ -1,6 +1,19 @@
 ##Daily Notes    
 Think More. Do More. Learn More.
 
+####07/29 Fri
+
+- This gives you info about containers running on a node:
+
+		url='http://node19.morado.com:8042/ws/v1/node/containers'
+		curl $url | python -m json.tool > containers.json
+
+  You can then use the "containerLogsLink" value to get the logs.
+  
+- First experiment with curl to see if it works, than you can incorporate it into Python. For example:
+
+		curl "http://node18.morado.com:8042/node/containerlogs/container_1466160025388_1911_01_000001/bright/AppMaster.stderr/?start=0"
+
 ####07/21 Thu
 
 - simple git cheatsheet: <https://gist.github.com/hofmannsven/6814451>
