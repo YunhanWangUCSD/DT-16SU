@@ -14,6 +14,13 @@ Think More. Do More. Learn More.
 
 		curl "http://node18.morado.com:8042/node/containerlogs/container_1466160025388_1911_01_000001/bright/AppMaster.stderr/?start=0"
 
+- Hadoop Node Configuration
+
+		Resource Manager:  http://hadoop1:8088
+		Web UI of the NameNode daemon:  http://hadoop1:50070
+		HDFS NameNode web interface:  http://hadoop1:8042
+
+
 ####07/21 Thu
 
 - simple git cheatsheet: <https://gist.github.com/hofmannsven/6814451>
