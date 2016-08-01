@@ -1,6 +1,21 @@
 ##Daily Notes    
 Think More. Do More. Learn More.
 
+####08/01 Mon
+
+- Git squash commits: 
+		git log: get id of the commit right before the earliest commit you want to squash
+		git branch: check all the branches you have now
+		git branch backup: create a backup branch
+		git checkout branch: check all the branches you have now
+		git checkout X: switch from branch backup to your own branch X
+		git reset --soft ID: keep all the changes and then reset to the status right before your earliest commit
+		git status 
+		git commit -a
+		git remote -v
+		git push -f ORIGIN YOURBRANCH 
+
+
 ####07/29 Fri
 
 - This gives you info about containers running on a node:
