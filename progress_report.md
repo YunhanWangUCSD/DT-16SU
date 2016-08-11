@@ -1,6 +1,16 @@
 ##Progress Report    
 Think More. Do More. Learn More.
 
+#### Week 08/01-08/05
+
+Finished:
+
+1. Fetch logs for containers of given application: 
+
+		(1) get all the container log files
+		(2) parse AM log and container logs —— remove HTML and remain only text content
+		(3) add command line arguments options, based on arguments, create directory structure.
+
 
 #### Week 07/18-07/22
 Goals:
@@ -12,8 +22,8 @@ Goals:
 
 Finished:
 
-1. Fixed File to Jdbc PR comments, okay to merge now
-2. 
+1. Fixed File to Jdbc PR comments
+2. PR merged
 
 TODO:
 
