@@ -4,6 +4,7 @@ Think More. Do More. Learn More.
 ####08/01 Mon
 
 - Git squash commits: 
+
 		git log: get id of the commit right before the earliest commit you want to squash
 		git branch: check all the branches you have now
 		git branch backup: create a backup branch
