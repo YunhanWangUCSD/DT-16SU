@@ -1,6 +1,12 @@
 ##Progress Report    
 Think More. Do More. Learn More.
 
+#### Week 08/08-08/12
+
+Finished:
+
+1. PR Generated for SPOI-8825.
+
 #### Week 08/01-08/05
 
 Finished:
