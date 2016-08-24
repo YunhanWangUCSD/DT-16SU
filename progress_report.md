@@ -1,6 +1,13 @@
 ##Progress Report    
 Think More. Do More. Learn More.
 
+#### Week 08/15-08/19
+
+Finished:
+
+1. Add timestamp and state transitions to python tool's output.
+2. Created 10 apps with errors and recorded error msg format in Log Analysis Google Sheet. 
+
 #### Week 08/08-08/12
 
 Finished:
